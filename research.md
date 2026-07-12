@@ -135,7 +135,7 @@ research/
       hypothesis.md
       protocol.md
       results.md
-      notes.md             # optional
+      notes.md             # append-only meaningful-change log, when needed
   graveyard/
 agent/                     # if autonomous execution is used
   AUTHORITY.md
@@ -376,7 +376,21 @@ Numbers, paths, E-ids. One bottleneck per ranking experiment. Quote logs sparing
 
 ---
 
-## 14. Cadence
+## 14. Meaningful changes within one experiment
+
+An E-id names one hypothesis, not one attempt. Every execution gets a unique `run_id`.
+
+A change is meaningful if it could affect a score, gate, resource use, reproducibility, or conclusion. Before the next run, append to `notes.md`:
+
+- what changed and why;
+- the relevant commit, config, data, harness, and dependency hashes;
+- after execution, the `run_id`, result, and decision.
+
+Never overwrite prior records or run artifacts. Keep the E-id only while its mechanism, bottleneck, control, and success criterion remain unchanged; otherwise create a new E-id and cite the parent. Cosmetic edits need no entry.
+
+---
+
+## 15. Cadence
 
 | Rhythm | Action |
 |--------|--------|
@@ -391,9 +405,9 @@ One exploit line; optional second exploration line with finite `budget_cap`.
 
 ---
 
-## 15. Autonomous authority (`agent/AUTHORITY.md`)
+## 16. Autonomous authority (`agent/AUTHORITY.md`)
 
-Required when an agent runs unattended (humans still obey §§1–14):
+Required when an agent runs unattended (humans still obey §§1–15):
 
 - Compute / money / wall-clock ceilings  
 - Network allowlist, credentials, secret redaction  
@@ -405,7 +419,7 @@ Required when an agent runs unattended (humans still obey §§1–14):
 
 ---
 
-## 16. Binding this SOP to a project
+## 17. Binding this SOP to a project
 
 Map once in a short `research/PROJECT_BINDING.md` (or contract field):
 
@@ -419,17 +433,17 @@ Map once in a short `research/PROJECT_BINDING.md` (or contract field):
 
 Do not fork the SOP per domain—bind it.
 
-### 16.1 AI / ML specialization (optional)
+### 17.1 AI / ML specialization (optional)
 
 When the artifact is a model or agent: include train/contam policy; prompt/model/adapter digests in manifests; typical caps (tokens, tool calls); keep graders outside self-mod allowlists; never mine sealed task text into training.
 
-### 16.2 Systems / algorithms specialization (optional)
+### 17.2 Systems / algorithms specialization (optional)
 
 Pin compiler flags, CPU governor, dataset edition, NUMA/pinning; prefer deterministic workloads or report seed policy; profile-derived glimmers are first-class.
 
 ---
 
-## 17. Failure modes
+## 18. Failure modes
 
 | Failure | Fix |
 |---------|-----|
@@ -446,13 +460,13 @@ Pin compiler flags, CPU governor, dataset edition, NUMA/pinning; prefer determin
 
 ---
 
-## 18. Complexity not included yet
+## 19. Complexity not included yet
 
 Full FDR day-1; blind sealed vaults before leakage risk; multi-agent schedulers beyond lock+CAS; Pareto multi-primary boards; vector search over markdown.
 
 ---
 
-## 19. Session checklist
+## 20. Session checklist
 
 ```text
 [ ] Contract + promote_access + AUTHORITY (if agent)
@@ -467,6 +481,6 @@ Full FDR day-1; blind sealed vaults before leakage risk; multi-agent schedulers 
 
 ---
 
-## 20. Definition of done
+## 21. Definition of done
 
 A cold-start researcher can: read the contract; resolve #1 from the pointer; separate supported vs promoted; replay lineage with numbers and git SHAs; name bottleneck and next move; respect sealed/access/authority rules.
